@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Link Upload HD by ItzCrih</title>
+    
+    <!-- 1. FRAMEWORK & TIPOGRAFI -->
+    <!-- Tailwind CSS v4 CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #131921;
+            overflow-x: hidden;
+        }
+
+        /* 2. ANIMASI TRANSISI & UI YANG HIDUP */
+        @keyframes customFadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes customFadeOutDown {
+            0% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(24px) scale(0.96);
+            }
+        }
+
+        /* Animasi mengambang untuk elemen dekorasi Neo-brutalisme */
+        @keyframes floatEffect {
+            0%, 100% { transform: translateY(0px) rotate(12deg); }
+            50% { transform: translateY(-10px) rotate(16deg); }
+        }
+
+        @keyframes floatReverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(-6deg); }
+        }
+
+        @keyframes floatTriangle {
+            0%, 100% { transform: translateY(0px) rotate(45deg); }
+            50% { transform: translateY(-12px) rotate(55deg); }
+        }
+
+        .animate-ui-entrance {
+            animation: customFadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .animate-ui-exit {
+            animation: customFadeOutDown 0.4s cubic-bezier(0.36, 0, 0.66, -0.56) forwards;
+        }
+
+        .animate-float-box {
+            animation: floatEffect 4s ease-in-out infinite;
+        }
+
+        .animate-float-circle {
+            animation: floatReverse 4.5s ease-in-out infinite;
+        }
+
+        .animate-float-triangle {
+            animation: floatTriangle 5s ease-in-out infinite;
+        }
+
+        @keyframes shimmerEffect {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-100 flex flex-col items-center justify-center p-4 sm:p-8">
+
+    <!-- 3. BACKGROUND PARTIKEL BERGERAK (HTML5 CANVAS) -->
+    <canvas id="particleCanvas" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- KONTEN UTAMA LANDING PAGE -->
+    <main id="mainContent" class="relative z-20 text-center max-w-xl w-full animate-ui-entrance my-auto py-12">
+        
+        <!-- DEKORASI SHAPES TAMBAHAN -->
+        <div class="absolute -top-4 -left-4 sm:-left-8 w-14 h-14 border-4 border-black bg-yellow-400 rounded-2xl pointer-events-none z-30 animate-float-box shadow-[4px_4px_0px_0px_#000]"></div>
+        <div class="absolute -bottom-6 -right-4 sm:-right-8 w-16 h-16 border-4 border-black bg-cyan-400 rounded-full pointer-events-none z-30 animate-float-circle shadow-[4px_4px_0px_0px_#000]"></div>
+        <div class="absolute bottom-12 -left-8 w-10 h-10 border-4 border-black bg-rose-400 pointer-events-none z-30 animate-float-triangle shadow-[3px_3px_0px_0px_#000] hidden sm:block"></div>
+        <div class="absolute top-16 -right-6 w-8 h-8 border-4 border-black bg-purple-400 rounded-lg pointer-events-none z-30 animate-float-box shadow-[3px_3px_0px_0px_#000] hidden sm:block"></div>
+
+        <!-- MAIN CONTAINER / CARD -->
+        <div class="relative bg-slate-800/95 backdrop-blur-md border-4 border-black p-6 sm:p-10 rounded-[24px] shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden">
+            
+            <!-- Badge Pojok Kanan Atas -->
+            <div class="absolute -top-1 -right-1 bg-yellow-400 border-b-4 border-l-4 border-black text-black px-4 py-1 text-[10px] font-black tracking-widest uppercase rounded-bl-xl z-20">
+                METHOD 2026
+            </div>
+
+            <!-- ICON BRAND UTAMA -->
+            <div class="relative z-10 w-20 h-20 bg-cyan-400 border-4 border-black rounded-2xl mx-auto mb-6 flex items-center justify-center shadow-[4px_4px_0px_0px_#000]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-black stroke-[3.5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                </svg>
+            </div>
+
+            <!-- TEKS JUDUL UTAMA -->
+            <div class="relative z-10 space-y-4 mb-6">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-xl bg-black border-2 border-black rotate-[-1deg]">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    <p class="text-[11px] font-black uppercase tracking-widest text-white">Itzcrih method</p>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight uppercase font-black">
+                    UPLOAD DENGAN <span class="text-black bg-yellow-400 px-2 rounded-lg border-2 border-black inline-block my-1 shadow-[2px_2px_0px_0px_#000]">ITZCRIH METHOD</span>
+                </h1>
+            </div>
+
+            <!-- SUB-CONTAINER INFORMASI AWAL -->
+            <div class="relative z-10 border-4 border-black bg-rose-500/15 border-rose-500 p-4 rounded-xl text-left mb-6 flex flex-col gap-2 shadow-[4px_4px_0px_0px_#f43f5e]">
+                <div class="flex items-center gap-2 text-rose-400 font-black uppercase text-xs tracking-wider">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>HARAP DIBACA!</span>
+                </div>
+                <p class="text-xs sm:text-sm text-white leading-relaxed font-semibold">
+                    Tidak perlu menggunakan browser edge atau method ribet lainnya cukup ikuti panduan di bawah (kalo bingung dengan panduan di bawah cari aja vt yang bahas tutor upload dengan itzcrih method).
+                </p>
+            </div>
+
+            <!-- SUB-CONTAINER PROSES PANDUAN LANGKAH -->
+            <div class="relative z-10 text-left bg-slate-900 border-4 border-black p-5 sm:p-6 rounded-xl mb-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+                <h2 class="text-xs font-black uppercase tracking-wider text-cyan-400 flex items-center gap-2 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Panduan biar video kalian ke up hd ygy:
+                </h2>
+                
+                <div class="space-y-4 text-xs text-slate-200 font-medium">
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-lg bg-cyan-400 border-2 border-black flex items-center justify-center font-black text-black shadow-[2px_2px_0px_0px_#000]">1</div>
+                        <p class="leading-relaxed pt-0.5">Upload video ke link yang yang telah di-<em>export</em> (dari alight motion/dari wink misalnya) ke link yang paling bawah ygy.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-lg bg-yellow-400 border-2 border-black flex items-center justify-center font-black text-black shadow-[2px_2px_0px_0px_#000]">2</div>
+                        <p class="leading-relaxed pt-0.5">Tunggu prosesnya hingga selesai sepenuhnya oleh webnya.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-lg bg-rose-400 border-2 border-black flex items-center justify-center font-black text-black shadow-[2px_2px_0px_0px_#000]">3</div>
+                        <p class="leading-relaxed pt-0.5">Download file hasil pemrosesan tersebut biasanya file video nya bernama <span class="bg-slate-800 border-2 border-black text-rose-400 px-1.5 py-0.5 rounded font-mono text-[11px] font-bold">(itzcrih_optimized_xxxx.mp4)</span>.</p>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-lg bg-purple-400 border-2 border-black flex items-center justify-center font-black text-black shadow-[2px_2px_0px_0px_#000]">4</div>
+                        <p class="leading-relaxed pt-0.5">Upload file hasil proses tadi ke <strong class="text-white underline decoration-cyan-400 decoration-2">TikTok Studio</strong> atau <strong class="text-white underline decoration-cyan-400 decoration-2">TikTok Web</strong> <span class="text-rose-400 font-black">(disarankan menggunakan PC / Laptop)</span> seperti biasa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTAINER AREA BERGAMBAR & DETIL PETUNJUK -->
+            <div class="relative z-10 text-left bg-slate-900 border-4 border-black p-4 rounded-xl mb-8 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] space-y-6">
+                <!-- Gambar Petunjuk 1 -->
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-purple-400 flex items-center gap-2 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        lihat  Petunjuk dibawah (Apabila muncul seperti ini) :
+                    </h3>
+                    <div class="relative w-full h-auto border-4 border-black bg-slate-950 rounded-lg overflow-hidden p-2 group flex flex-col items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                        <img src="gambar1.png" alt="Petunjuk Gambar Utama" class="w-full h-auto max-h-[400px] object-contain opacity-95 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-300 rounded">
+                    </div>
+                    <div class="mt-3 border-4 border-black bg-yellow-400/10 border-yellow-400 p-4 rounded-xl text-left flex flex-col gap-2 shadow-[4px_4px_0px_0px_#eab308]">
+                        <div class="flex items-center gap-2 text-yellow-400 font-black uppercase text-xs tracking-wider">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            <span>PETUNJUK PENTING (GAMBAR 1)!</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-semibold">
+                            Apabila muncul seperti ini tunggu sekitar <span class="text-yellow-400 font-extrabold underline decoration-2 decoration-yellow-400">10 detik</span> dan nanti akan muncul di bawah berupa tombol <span class="bg-black text-rose-400 px-2 py-0.5 rounded border border-black inline-block font-mono text-[11px] font-black shadow-[2px_2px_0px_0px_rgba(244,63,94,0.2)]">"Skip and proceed"</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="border-t border-dashed border-slate-700 my-4"></div>
+
+                <!-- Gambar Petunjuk 2 -->
+                <div>
+                    <h3 class="text-xs font-black uppercase tracking-wider text-cyan-400 flex items-center gap-2 mb-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        selanjutnya :
+                    </h3>
+                    <div class="relative w-full h-auto border-4 border-black bg-slate-950 rounded-lg overflow-hidden p-2 group flex flex-col items-center shadow-[4px_4px_0px_0px_rgba(0,0,0,0.5)]">
+                        <img src="gambar2.png" alt="Petunjuk Gambar Kedua" class="w-full h-auto max-h-[400px] object-contain opacity-95 group-hover:opacity-100 group-hover:scale-[1.01] transition-all duration-300 rounded">
+                    </div>
+                    <div class="mt-3 border-4 border-black bg-yellow-400/10 border-yellow-400 p-4 rounded-xl text-left flex flex-col gap-2 shadow-[4px_4px_0px_0px_#eab308]">
+                        <div class="flex items-center gap-2 text-yellow-400 font-black uppercase text-xs tracking-wider">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            </svg>
+                            <span>PETUNJUK PENTING (GAMBAR 2)!</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-200 leading-relaxed font-semibold">
+                            kemudian tunggu dan klik <span class="bg-black text-cyan-400 px-2 py-0.5 rounded border border-black inline-block font-mono text-[11px] font-black shadow-[2px_2px_0px_0px_rgba(34,211,238,0.2)]">"Yes, dismiss"</span>.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-2 text-[10px] font-black tracking-widest text-rose-500 text-center uppercase pt-2 select-none animate-pulse">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 stroke-[3]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>semua petunjuk dan panduan harap di baca!</span>
+                </div>
+            </div>
+
+            <!-- BUTTON INTERAKTIF CTA -->
+            <div class="relative z-10">
+                <a id="ctaButton" href="https://method.itzcrih.it/" target="_blank" rel="noopener noreferrer" class="relative inline-flex items-center justify-center w-full py-4 px-8 border-4 border-black text-white font-black text-sm tracking-widest rounded-xl bg-transparent transition-all duration-300 ease-out transform hover:text-white hover:scale-[1.02] hover:-translate-y-1 active:scale-[0.98] shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_#000] uppercase overflow-hidden group cursor-pointer">
+                    <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-rose-500 via-purple-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out z-0"></span>
+                    <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmerEffect_1.5s_infinite] z-10"></span>
+                    <span class="relative z-20">LINK UPLOAD HD BY ITZCRIH</span>
+                </a>
+            </div>
+
+            <!-- UPDATED STYLISH FOOTER COPYRIGHT (CENTERED & ALL RIGHTS RESERVED REMOVED) -->
+            <div class="relative z-10 mt-8 pt-4 border-t-4 border-black flex items-center justify-center select-none">
+                
+                <!-- Created By diposisikan tepat di tengah secara presisi -->
+                <div class="group flex items-center gap-2 bg-black text-[11px] font-black tracking-widest uppercase text-white px-4 py-1.5 rounded-lg border-2 border-black rotate-[-0.5deg] shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_#000] hover:scale-105 transition-all duration-300 cursor-default">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span>CREATED BY <span class="text-cyan-400 group-hover:text-rose-400 transition-colors duration-300">APIS999FPS</span></span>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- LOGIKA JAVASCRIPT: ENGINE PARTIKEL CANVAS & TRANSISI BUTTON -->
+    <script>
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let particlesArray = [];
+        const numberOfParticles = 65;
+
+        const mouse = {
+            x: null,
+            y: null,
+            radius: 130 
+        };
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        window.addEventListener('mousemove', (event) => {
+            mouse.x = event.clientX;
+            mouse.y = event.clientY;
+        });
+
+        window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2.5 + 1; 
+                this.speedX = Math.random() * 1.2 - 0.6;
+                this.speedY = Math.random() * 1.2 - 0.6;
+                this.baseColor = 'rgba(255, 0, 127, 0.45)';
+            }
+
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+
+                if (mouse.x != null && mouse.y != null) {
+                    let dx = this.x - mouse.x;
+                    let dy = this.y - mouse.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < mouse.radius) {
+                        let forceDirectionX = dx / distance;
+                        let forceDirectionY = dy / distance;
+                        let force = (mouse.radius - distance) / mouse.radius;
+                        let directionX = forceDirectionX * force * 3;
+                        let directionY = forceDirectionY * force * 3;
+
+                        this.x += directionX;
+                        this.y += directionY;
+                        this.baseColor = 'rgba(34, 211, 238, 0.8)';
+                    } else {
+                        this.baseColor = 'rgba(255, 0, 127, 0.45)';
+                    }
+                }
+            }
+
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.baseColor;
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function connectParticles() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let dx = particlesArray[a].x - particlesArray[b].x;
+                    let dy = particlesArray[a].y - particlesArray[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < 110) {
+                        opacityValue = 1 - (distance / 110);
+                        ctx.strokeStyle = `rgba(51, 65, 85, ${opacityValue * 0.5})`; 
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        const ctaButton = document.getElementById('ctaButton');
+        const mainContent = document.getElementById('mainContent');
+
+        ctaButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+
+            mainContent.classList.remove('animate-ui-entrance');
+            mainContent.classList.add('animate-ui-exit');
+
+            setTimeout(() => {
+                window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                setTimeout(() => {
+                    mainContent.classList.remove('animate-ui-exit');
+                    mainContent.classList.add('animate-ui-entrance');
+                }, 500);
+            }, 400);
+        });
+    </script>
+</body>
+</html>
